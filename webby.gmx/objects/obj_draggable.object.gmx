@@ -142,9 +142,10 @@ been_grabbed = true;
     }*/
 //event user 2 to cast spells and delete them and stuff
 
-if (distance_to_object(obj_plate) &lt;= 80){
+if (distance_to_object(obj_plate) &lt;= 5){
     x = obj_plate.x;
     y = obj_plate.y;
+    event_user(2);
 } else{
     instance_destroy();
 }

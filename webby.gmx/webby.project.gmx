@@ -17,6 +17,8 @@
     <sprite>sprites\spr_girlB</sprite>
     <sprite>sprites\spr_lettuce</sprite>
     <sprite>sprites\spr_mayo</sprite>
+    <sprite>sprites\spr_peanutbutter</sprite>
+    <sprite>sprites\spr_jelly_splat</sprite>
     <sprite>sprites\spr_plate</sprite>
     <sprite>sprites\spr_sandwich</sprite>
     <sprite>sprites\spr_tomato</sprite>
@@ -33,6 +35,9 @@
     <sprite>sprites\spr_practice</sprite>
     <sprite>sprites\spr_start</sprite>
     <sprite>sprites\spr_sticky</sprite>
+    <sprite>sprites\spr_jelly</sprite>
+    <sprite>sprites\spr_mayojar</sprite>
+    <sprite>sprites\spr_peanutbutter_jar</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_title</background>
@@ -43,6 +48,7 @@
     <script>scripts\scr_prep_menu.gml</script>
     <script>scripts\perform_grab.gml</script>
     <script>scripts\obj_held.gml</script>
+    <script>scripts\scr_gen_sandwich.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font</font>
@@ -67,8 +73,23 @@
     <object>objects\obj_mamaYAY</object>
     <object>objects\obj_sandwich_manager</object>
     <object>objects\obj_draggable</object>
+    <object>objects\obj_peanutbutter_jar</object>
+    <object>objects\obj_jelly_jar</object>
+    <object>objects\obj_mayo_jar</object>
+    <object>objects\obj_mayo</object>
+    <object>objects\obj_peanutbutter</object>
+    <object>objects\obj_jelly</object>
+    <object>objects\obj_player</object>
+    <object>objects\char_baldA</object>
+    <object>objects\char_baldB</object>
+    <object>objects\char_girlA</object>
+    <object>objects\char_girlB</object>
+    <object>objects\char_uhhA</object>
+    <object>objects\char_uhhB</object>
+    <object>objects\obj_char_mover</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room_character_select</room>
     <room>rooms\room_test</room>
     <room>rooms\room_title</room>
   </rooms>
