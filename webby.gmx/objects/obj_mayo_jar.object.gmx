@@ -28,6 +28,7 @@
             <string>instance_create(x, y, obj_mayo);
 with(obj_mayo){
     is_held = true;
+    depth = -room_height * 100;
 }
 </string>
           </argument>

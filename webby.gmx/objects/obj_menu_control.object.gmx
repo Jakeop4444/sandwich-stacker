@@ -25,8 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.menu_state = 0;
+            <string>//jsAddLibrary("https://lss-assets.sfo2.cdn.digitaloceanspaces.com/lss-clamp/Clamp.min.js");
+
+
+global.menu_state = 0;
 scr_prep_menu();
+
+/*jsExecute("
+    Clamp.sendData({score: 0, maxScore: 100, data: {message: 'Session started'}, closeRecord: false});
+");
+*/
 </string>
           </argument>
         </arguments>

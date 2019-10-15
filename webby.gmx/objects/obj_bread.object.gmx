@@ -28,6 +28,16 @@
             <string>if (ds_stack_top(global.order) == "Bread"){
     ds_stack_pop(global.order);
 } else{
+    //child placed wrong ingredient
+    global.accident = true;
+    
+    //display an "oops"
+    instance_create(864, 128, obj_mamaNAY);
+    
+    //remove the extra stack height
+    global.sandwich_stack -= 1;
+    
+    //destroy leftovers
     instance_destroy();
 }
 </string>

@@ -28,6 +28,7 @@
             <string>instance_create(x, y, obj_jelly);
 with(obj_jelly){
     is_held = true;
+    depth = -room_height * 100;
 }
 </string>
           </argument>

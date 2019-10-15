@@ -28,6 +28,7 @@
             <string>instance_create(x, y, obj_peanutbutter);
 with(obj_peanutbutter){
     is_held = true;
+    depth = -room_height * 100;
 }
 </string>
           </argument>

@@ -27,13 +27,24 @@
             <kind>1</kind>
             <string>global.order = ds_stack_create();
 
+global.player_score = 0;
+global.max_score = 100;
+global.sandwiches_made = 0;
+global.accident = false;
+//global.miss = 0;
+//global.sandwich_perfects = 0;
+
 randomize();
 
-sandwich_number = irandom_range(1, 2);
+sandwich_number = irandom_range(1, 5);
+global.menu_item = sandwich_number;
 
 switch sandwich_number {
     case 1: ds_stack_push(global.order, "Bread", "Peanut Butter", "Jelly", "Bread"); break;
     case 2: ds_stack_push(global.order, "Bread", "Turkey", "Cheese", "Lettuce", "Tomato", "Mayo", "Bread"); break;
+    case 3: ds_stack_push(global.order, "Bread", "Mayo", "Tomato", "Lettuce", "Bread"); break;
+    case 4: ds_stack_push(global.order, "Bread", "Lettuce", "Tomato", "Lettuce", "Bread"); break;
+    case 5: ds_stack_push(global.order, "Bread", "Mayo", "Cheese", "Turkey", "Bread"); break;
 }
 </string>
           </argument>
@@ -68,8 +79,30 @@ switch sandwich_number {
     instance_destroy(obj_peanutbutter);
     instance_destroy(obj_jelly);
     
-    instance_create(672, 608, obj_plate);
+    instance_create(416, 320, obj_plate);
     
+    if (!global.accident){
+        global.player_score += 1;
+    }
+    
+    global.sandwiches_made += 1;
+    global.accident = false;
+    
+    if (global.sandwiches_made == 10){
+        /*jsExecute("
+            Clamp.sendData({score: " + (global.player_score/global.sandwiches_made) + ", maxScore: 100, data: {message: 'Sandwich Limit Reached'}, closeRecord: true});
+        ");*/
+        jsExecute("
+            Clamp.LSS_sendScore(" + (global.player_score/global.sandwiches_made) + ", 100);
+            Clamp.LSS_end();
+        ");
+        room_goto(room_title);
+    }
+    
+    instance_create(864, 128, obj_mamaYAY);
+    
+    instance_create(672, 608, obj_plate);
+    global.sandwich_stack = 1;
     scr_gen_sandwich();
 }
 </string>
@@ -98,7 +131,30 @@ switch sandwich_number {
 draw_set_color(c_black);
 
 draw_self();
-draw_text(x, y, ds_stack_top(global.order));
+draw_text(x - 36, y, ds_stack_top(global.order));
+draw_text(224, 12, "Currently making:");
+
+switch global.menu_item {
+    case 1: draw_text(224, 32, "Peanut Butter and Jelly"); break;
+    case 2: draw_text(224, 32, "The Classic"); break;
+    case 3: draw_text(224, 32, "The Meatless"); break;
+    case 4: draw_text(224, 32, "The Greens"); break;
+    case 5: draw_text(224, 32, "The Light Turkey"); break;
+}
+
+draw_text(448, 32, "Sandwich count:");
+draw_text(568, 32, global.sandwiches_made);
+draw_text(580, 32, "/");
+draw_text(592, 32, "10");
+
+draw_text(224, 64, "Score:");
+
+if (global.player_score &gt;= 1){
+    draw_text(280, 64, (global.player_score/global.sandwiches_made) * 100);
+} else{
+    draw_text(280, 64, "0");
+}
+//224, 32
 </string>
           </argument>
         </arguments>

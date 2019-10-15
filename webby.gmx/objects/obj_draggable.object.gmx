@@ -28,6 +28,8 @@
             <string>is_held = false;
 check_grab = false;
 been_grabbed = false;
+
+depth = -y;
 </string>
           </argument>
         </arguments>
@@ -83,7 +85,7 @@ been_grabbed = false;
     }
 }
 
-depth = -y;
+//depth = -y;
 </string>
           </argument>
         </arguments>
@@ -144,7 +146,9 @@ been_grabbed = true;
 
 if (distance_to_object(obj_plate) &lt;= 5){
     x = obj_plate.x;
-    y = obj_plate.y;
+    y = obj_plate.y - (5 * global.sandwich_stack);
+    depth = -y * (5 * global.sandwich_stack);
+    global.sandwich_stack += 1;
     event_user(2);
 } else{
     instance_destroy();
@@ -172,9 +176,8 @@ if (distance_to_object(obj_plate) &lt;= 5){
           <argument>
             <kind>1</kind>
             <string>is_held = true;
-//if (type == types.spell){
-//
-//}
+depth = -room_height * 100;
+
 </string>
           </argument>
         </arguments>

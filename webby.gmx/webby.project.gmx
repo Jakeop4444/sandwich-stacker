@@ -6,7 +6,15 @@
   <NewExtensions>
     <extension index="0">extensions\GM.JS</extension>
   </NewExtensions>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\stacker_alright</sound>
+    <sound>sound\stacker_goodjob</sound>
+    <sound>sound\stacker_oops</sound>
+    <sound>sound\stacker_tryagain</sound>
+    <sound>sound\stacker_yay</sound>
+    <sound>sound\stacker_almost</sound>
+    <sound>sound\stacker_notquite</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_mamaYay</sprite>
     <sprite>sprites\spr_bread</sprite>
@@ -38,6 +46,12 @@
     <sprite>sprites\spr_jelly</sprite>
     <sprite>sprites\spr_mayojar</sprite>
     <sprite>sprites\spr_peanutbutter_jar</sprite>
+    <sprite>sprites\spr_mamaAlmost</sprite>
+    <sprite>sprites\spr_mamaAlright</sprite>
+    <sprite>sprites\spr_mamaGoodjob</sprite>
+    <sprite>sprites\spr_mamaNotquite</sprite>
+    <sprite>sprites\spr_mamaOops</sprite>
+    <sprite>sprites\spr_mamaTryagain</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_title</background>
@@ -71,6 +85,7 @@
     <object>objects\obj_plate_for_jelly</object>
     <object>objects\obj_plate_for_mayo</object>
     <object>objects\obj_mamaYAY</object>
+    <object>objects\obj_mamaNAY</object>
     <object>objects\obj_sandwich_manager</object>
     <object>objects\obj_draggable</object>
     <object>objects\obj_peanutbutter_jar</object>
@@ -87,11 +102,14 @@
     <object>objects\char_uhhA</object>
     <object>objects\char_uhhB</object>
     <object>objects\obj_char_mover</object>
+    <object>objects\obj_title_mover</object>
+    <object>objects\obj_clamp</object>
+    <object>objects\obj_go</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room_title</room>
     <room>rooms\room_character_select</room>
     <room>rooms\room_test</room>
-    <room>rooms\room_title</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
